@@ -1,9 +1,8 @@
 {
   "name": "squish",
   "version": "0.0.0",
-  "dependencies": {},
-  "devDependencies": {
-
-  }
+  "dependencies": {
+    "bytebuffer": "~5.0.0"
+  },
+  "devDependencies": {}
 }
-

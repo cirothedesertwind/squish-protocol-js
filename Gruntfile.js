@@ -13,6 +13,12 @@ module.exports = function(grunt) {
       '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
       ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
     // Task configuration.
+
+    bower_concat: {
+     all: {
+      dest: 'lib/bower_dep.js'
+     }
+    },
     concat: {
       options: {
         banner: '<%= banner %>',
@@ -59,9 +65,10 @@ module.exports = function(grunt) {
   });
 
 
+  grunt.loadNpmTasks('grunt-bower-concat');
 
   // Default task.
-  grunt.registerTask('default', ['mochaTest', 'concat', 'uglify']);
+  grunt.registerTask('default', ['mochaTest', 'bower_concat', 'concat', 'uglify']);
 
   // Specific tasks
   grunt.registerTask('test', ['mochaTest']);
